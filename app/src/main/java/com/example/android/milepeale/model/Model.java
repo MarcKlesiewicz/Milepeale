@@ -1,10 +1,19 @@
 package com.example.android.milepeale.model;
 
-public class Model {
+import java.util.Observable;
 
-    private String data = "Hello";
+public class Model extends Observable {
 
-public String getData(){ return data; }
+    private String data = "Hello World!";
 
-public void setData(String data){ this.data = data;}
+    public String getData(){
+        return data; }
+
+    public void setData(String data){
+        this.data = data;
+
+        super.setChanged();
+        super.notifyObservers();
+
+    }
 }
